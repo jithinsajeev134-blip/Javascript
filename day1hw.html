@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var item1name="rice";item2name="sugar";item3name="wheat";
+        var item1price=100;item2price=100;item3price=100;
+        var item1quant=1;item2quant=2;item3quant=3;
+
+        var item1cost=item1price*item1quant;
+        var item2cost=item2price*item2quant;
+        var item3cost=item3price*item3quant;
+
+        var totalcost=item1cost+item2cost+item3cost;
+
+        console.log(item1name+":"+item1cost);
+        console.log(item2name+":"+item2cost);
+        console.log(item3name+":"+item3cost);
+        console.log("Total cost:"+totalcost);
+
+        item3quant=5;
+
+        item3cost=item3price*item3quant;
+        totalcost=item1cost+item2cost+item3cost;
+
+       
+        console.log(item1name+":"+item1cost);
+        console.log(item2name+":"+item2cost);
+        console.log(item3name+":"+item3cost);
+         console.log("Total cost:"+totalcost);
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
