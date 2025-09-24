@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day5hw</title>
+</head>
+<body>
+     <h1>User Profile</h1>
+    <button onclick="checkAccess()">Check Access</button>
+    <div id="result"></div>
+
+    <script>
+        
+        let user = {
+            name: "Jithin",
+            age: 20,
+            isAdmin: true
+        };
+
+        function checkAccess() {
+            
+            let hasAge = "age" in user;
+
+            let accessMessage = hasAge && user.age >= 18 && user.isAdmin ? "Access Granted" : "Access Denied";
+
+            document.getElementById("result").innerText = accessMessage;
+
+            delete user.age;
+        }
+    </script>
+</body>
+</html>
