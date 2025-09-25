@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Result Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎓 Student Result Dashboard</h1>
+  
+  <div id="dashboard"></div>
+  
+  <script>
+    // Student data
+    const students = [
+      { name: "Asha", score: 72 },
+      { name: "Rahul", score: 34 },
+      { name: "Meera", score: 89 },
+      { name: "Vikram", score: 95 },
+      { name: "Anjali", score: 56 }
+    ];
+
+    const dashboard = document.getElementById("dashboard");
+
+    // 1. List all student names
+    const names = students.map(s => s.name);
+
+    // 2. Students with score > 60
+    const above60 = students.filter(s => s.score > 60).map(s => s.name);
+
+    // 3. Total score
+    const totalScore = students.reduce((sum, s) => sum + s.score, 0);
+
+    // 4. Check if all passed
+    const allPassed = students.every(s => s.score > 35);
+
+    // 5. At least one scored > 90
+    const topper = students.some(s => s.score > 90);
+
+    // 6. Sort by score (descending)
+    const sorted = [...students].sort((a, b) => b.score - a.score);
+
+    // Function to add section to dashboard
+    function addCard(title, content) {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<h3>${title}</h3> ${content}`;
+      dashboard.appendChild(card);
+    }
+
+    // Display results
+    addCard("All Student Names", `<ul>${names.map(n => `<li>${n}</li>`).join("")}</ul>`);
+    addCard("Students scoring above 60", `<ul>${above60.map(n => `<li>${n}</li>`).join("")}</ul>`);
+    addCard("Total Score", `<p>${totalScore}</p>`);
+    addCard("All Passed?", `<p>${allPassed ? "✅ Yes" : "❌ No"}</p>`);
+    addCard("Any scored above 90?", `<p>${topper ? "✅ Yes" : "❌ No"}</p>`);
+    addCard("Sorted by Score (High → Low)", 
+      `<ul>${sorted.map(s => `<li>${s.name} - ${s.score}</li>`).join("")}</ul>`);
+
+    // Also log to console
+    console.log("All student names:", names);
+    console.log("Students scoring above 60:", above60);
+    console.log("Total Score:", totalScore);
+    console.log("All students passed?", allPassed);
+    console.log("At least one scored >90?", topper);
+    console.log("Sorted students (high to low):", sorted);
+  </script>
+</body>
+</html>
